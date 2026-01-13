@@ -12,6 +12,8 @@
     "check": "biome check"
   },
   "dependencies": {
+    "@fontsource-variable/fira-code": "^5.2.7",
+    "@fontsource-variable/outfit": "^5.2.8",
     "@fontsource/carlito": "^5.2.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.0.6",
@@ -23,6 +25,7 @@
     "@tanstack/router-plugin": "^1.132.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "gsap": "^3.14.2",
     "lucide-react": "^0.561.0",
     "nitro": "npm:nitro-nightly@latest",
     "react": "^19.2.0",

@@ -1,3 +1,5 @@
+"use client";
+
 import { cva, type VariantProps } from "class-variance-authority";
 import { gsap } from "gsap";
 import { useLayoutEffect, useRef } from "react";
@@ -25,7 +27,7 @@ const buttonVariants = cva(
 	},
 );
 
-export default function Button({
+export default function WideButton({
 	className,
 	variant,
 	size,
