@@ -1,3 +1,6 @@
+import Button from "./ui/button";
+import WideButton from "./ui/button-long";
+
 export default function Hero() {
 	return (
 		<section className="mx-auto container w-full max-w-3xl flex flex-col items-start gap-4 py-20 px-4">
@@ -12,6 +15,10 @@ export default function Hero() {
 					clean, scalable web applications.
 				</strong>
 			</p>
+			<div className="flex flex-row gap-3">
+				<WideButton variant={"outline"}>Get In Touch</WideButton>
+				<Button variant={"outline"} size={"lg"}></Button>
+			</div>
 		</section>
 	);
 }

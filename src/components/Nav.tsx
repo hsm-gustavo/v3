@@ -1,15 +1,18 @@
 "use client";
 
+import { useGSAP } from "@gsap/react";
 import { Link } from "@tanstack/react-router";
 import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function Nav() {
+	gsap.registerPlugin(useGSAP);
+
 	const listRef = useRef<HTMLUListElement>(null);
 	const underlineRef = useRef<HTMLSpanElement>(null);
 
-	useLayoutEffect(() => {
-		const ctx = gsap.context(() => {
+	useGSAP(() => {
+		gsap.context(() => {
 			if (!listRef.current || !underlineRef.current) return;
 
 			const items = gsap.utils.toArray<HTMLLIElement>(
@@ -29,6 +32,8 @@ export default function Nav() {
 					const bounds = item.getBoundingClientRect();
 					const parentBounds = listRef.current.getBoundingClientRect();
 
+					gsap.killTweensOf(underlineRef.current);
+
 					gsap.to(underlineRef.current, {
 						x: bounds.left - parentBounds.left,
 						width: bounds.width,
@@ -36,21 +41,25 @@ export default function Nav() {
 						opacity: 1,
 						duration: 0.4,
 						ease: "power3.out",
+						overwrite: "auto",
 					});
 				});
 			});
 
 			listRef.current.addEventListener("mouseleave", () => {
+				if (!underlineRef.current) return;
+
+				gsap.killTweensOf(underlineRef.current);
+
 				gsap.to(underlineRef.current, {
 					scaleX: 0,
 					opacity: 0,
 					duration: 0.3,
 					ease: "power2.in",
+					overwrite: "auto",
 				});
 			});
 		}, listRef);
-
-		return () => ctx.revert();
 	}, []);
 
 	return (

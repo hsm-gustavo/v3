@@ -1,6 +1,7 @@
+import { useGSAP } from "@gsap/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -13,7 +14,7 @@ const buttonVariants = cva(
 			},
 			size: {
 				default: "p-5",
-				sm: "p-5",
+				sm: "p-3",
 				lg: "p-10",
 				xl: "p-12",
 			},
@@ -31,14 +32,16 @@ export default function Button({
 	size,
 	...props
 }: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
+	gsap.registerPlugin(useGSAP);
+
 	const btnRef = useRef<HTMLButtonElement>(null);
 	const blob1 = useRef<HTMLSpanElement>(null);
 	const blob2 = useRef<HTMLSpanElement>(null);
 
-	useLayoutEffect(() => {
+	useGSAP(() => {
 		if (!btnRef.current) return;
 
-		const ctx = gsap.context(() => {
+		gsap.context(() => {
 			gsap.set([blob1.current, blob2.current], {
 				scale: 0.1,
 				transformOrigin: "50% 50%",
@@ -47,13 +50,13 @@ export default function Button({
 			const tl = gsap.timeline({ paused: true });
 
 			tl.to(blob1.current, {
-				scale: 6,
+				scale: 3.6,
 				duration: 1.2,
 				ease: "power3.out",
 			}).to(
 				blob2.current,
 				{
-					scale: 4,
+					scale: 3,
 					duration: 1,
 					ease: "power3.out",
 				},
@@ -63,8 +66,6 @@ export default function Button({
 			btnRef.current?.addEventListener("mouseenter", () => tl.play());
 			btnRef.current?.addEventListener("mouseleave", () => tl.reverse());
 		}, btnRef);
-
-		return () => ctx.revert();
 	}, []);
 
 	return (
@@ -82,7 +83,7 @@ export default function Button({
 					top: "100%",
 					width: "100%",
 					height: "100%",
-					transform: "translate(-40%, 20%)",
+					transform: "translate(-40%, 0%)",
 				}}
 			/>
 			<span
@@ -97,7 +98,7 @@ export default function Button({
 				}}
 			/>
 
-			<p className="z-10 transition-colors duration-[0.6s] text-foreground group-hover:text-accent-foreground text-shadow-lg">
+			<p className="z-10 transition-colors mix-blend-difference text-white text-shadow-lg font-light">
 				{props.children}
 			</p>
 		</button>

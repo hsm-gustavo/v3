@@ -1,12 +1,11 @@
-"use client";
-
+import { useGSAP } from "@gsap/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-	"aspect-square group relative rounded-xl overflow-hidden inline-flex items-center gap-2 justify-center whitespace-nowrap font-medium text-sm disabled:pointer-events-none disabled:opacity-50",
+	"aspect-3/2 group relative rounded-xl overflow-hidden inline-flex items-center gap-2 justify-center whitespace-nowrap font-medium text-sm disabled:pointer-events-none disabled:opacity-50",
 	{
 		variants: {
 			variant: {
@@ -15,7 +14,7 @@ const buttonVariants = cva(
 			},
 			size: {
 				default: "p-5",
-				sm: "p-5",
+				sm: "p-3",
 				lg: "p-10",
 				xl: "p-12",
 			},
@@ -33,40 +32,58 @@ export default function WideButton({
 	size,
 	...props
 }: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
+	gsap.registerPlugin(useGSAP);
+
 	const btnRef = useRef<HTMLButtonElement>(null);
 	const blob1 = useRef<HTMLSpanElement>(null);
 	const blob2 = useRef<HTMLSpanElement>(null);
+	const blob3 = useRef<HTMLSpanElement>(null);
 
-	useLayoutEffect(() => {
+	const w =
+		size === "sm" ? 70 : size === "lg" ? 100 : size === "xl" ? 116 : 100;
+
+	useGSAP(() => {
 		if (!btnRef.current) return;
 
-		const ctx = gsap.context(() => {
-			gsap.set([blob1.current, blob2.current], {
+		gsap.context(() => {
+			gsap.set([blob1.current, blob2.current, blob3.current], {
 				scale: 0.1,
 				transformOrigin: "50% 50%",
 			});
 
 			const tl = gsap.timeline({ paused: true });
 
-			tl.to(blob1.current, {
-				scale: 6,
-				duration: 1.2,
-				ease: "power3.out",
-			}).to(
-				blob2.current,
+			tl.to(
+				blob1.current,
 				{
-					scale: 4,
-					duration: 1,
+					scale: 3.7,
+					duration: 1.2,
 					ease: "power3.out",
 				},
-				0,
-			);
+				0.2,
+			)
+				.to(
+					blob2.current,
+					{
+						scale: 2.8,
+						duration: 1,
+						ease: "power3.out",
+					},
+					0.1,
+				)
+				.to(
+					blob3.current,
+					{
+						scale: 3.4,
+						duration: 1,
+						ease: "power3.out",
+					},
+					0.3,
+				);
 
 			btnRef.current?.addEventListener("mouseenter", () => tl.play());
 			btnRef.current?.addEventListener("mouseleave", () => tl.reverse());
 		}, btnRef);
-
-		return () => ctx.revert();
 	}, []);
 
 	return (
@@ -80,26 +97,37 @@ export default function WideButton({
 				ref={blob1}
 				className="absolute bg-border rounded-full z-0"
 				style={{
-					left: "0",
+					left: "-20%",
 					top: "100%",
-					width: "100%",
-					height: "100%",
-					transform: "translate(-40%, 20%)",
+					width: `${w}px`,
+					height: `${w}px`,
+					transform: "translate(-40%, 0%)",
 				}}
 			/>
 			<span
 				ref={blob2}
 				className="absolute bg-border rounded-full z-0"
 				style={{
-					left: "80%",
+					left: "50%",
 					top: "100%",
-					width: "100%",
-					height: "100%",
-					transform: "translate(-50%, -10%)",
+					width: `${w}px`,
+					height: `${w}px`,
+					transform: "translate(-30%, 0%)",
+				}}
+			/>
+			<span
+				ref={blob3}
+				className="absolute bg-border rounded-full z-0"
+				style={{
+					left: "120%",
+					top: "100%",
+					width: `${w}px`,
+					height: `${w}px`,
+					transform: "translate(-40%, 0%)",
 				}}
 			/>
 
-			<p className="z-10 transition-colors duration-[0.6s] text-foreground group-hover:text-accent-foreground text-shadow-lg">
+			<p className="z-10 transition-colors mix-blend-difference text-white text-shadow-lg font-light">
 				{props.children}
 			</p>
 		</button>
