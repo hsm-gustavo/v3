@@ -93,7 +93,7 @@ export default function Button({
 					top: "100%",
 					width: "100%",
 					height: "100%",
-					transform: "translate(-50%, -10%)",
+					transform: "translate(-50%, 0%)",
 				}}
 			/>
 
