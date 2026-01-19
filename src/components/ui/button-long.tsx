@@ -65,11 +65,11 @@ export default function WideButton({
 				.to(
 					blob2.current,
 					{
-						scale: 2.8,
+						scale: 3.5,
 						duration: 1,
 						ease: "power3.out",
 					},
-					0.1,
+					0.2,
 				)
 				.to(
 					blob3.current,
@@ -78,7 +78,7 @@ export default function WideButton({
 						duration: 1,
 						ease: "power3.out",
 					},
-					0.3,
+					0.1,
 				);
 
 			btnRef.current?.addEventListener("mouseenter", () => tl.play());
