@@ -1,9 +1,10 @@
+import { useGSAP } from "@gsap/react";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-
+import gsap from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Header from "../components/Header";
-
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -32,6 +33,8 @@ export const Route = createRootRoute({
 
 	shellComponent: RootDocument,
 });
+
+gsap.registerPlugin(useGSAP, ScrollSmoother);
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (

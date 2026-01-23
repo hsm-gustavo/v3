@@ -32,8 +32,6 @@ export default function Button({
 	size,
 	...props
 }: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
-	gsap.registerPlugin(useGSAP);
-
 	const btnRef = useRef<HTMLButtonElement>(null);
 	const blob1 = useRef<HTMLSpanElement>(null);
 	const blob2 = useRef<HTMLSpanElement>(null);

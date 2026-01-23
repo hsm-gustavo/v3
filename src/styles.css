@@ -2,6 +2,7 @@
 
 @import "@fontsource-variable/outfit";
 @import "@fontsource-variable/fira-code";
+@import "@fontsource-variable/roboto-mono";
 
 @theme inline {
   --color-background: var(--background);
@@ -15,6 +16,7 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-roboto-mono: var(--font-roboto-mono);
 }
 
 :root {
@@ -29,6 +31,7 @@
 
   --font-sans: "Outfit Variable", sans-serif;
   --font-mono: "Fira Code Variable", monospace;
+  --font-roboto-mono: "Roboto Mono Variable", monospace;
 }
 
 @layer base {

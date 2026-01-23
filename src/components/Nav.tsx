@@ -6,8 +6,6 @@ import gsap from "gsap";
 import { useRef } from "react";
 
 export default function Nav() {
-	gsap.registerPlugin(useGSAP);
-
 	const listRef = useRef<HTMLUListElement>(null);
 	const underlineRef = useRef<HTMLSpanElement>(null);
 
