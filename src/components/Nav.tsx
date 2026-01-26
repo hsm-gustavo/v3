@@ -1,9 +1,9 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import { Link } from "@tanstack/react-router";
 import gsap from "gsap";
 import { useRef } from "react";
+import { scrollToElementById } from "@/lib/utils";
 
 export default function Nav() {
 	const listRef = useRef<HTMLUListElement>(null);
@@ -62,20 +62,32 @@ export default function Nav() {
 
 	return (
 		<ul ref={listRef} className="relative flex gap-4 ml-6">
-			<li className="cursor-pointer">
-				<Link to="/" hash="about">
+			<li>
+				<button
+					type="button"
+					onClick={() => scrollToElementById("#about")}
+					className="cursor-pointer"
+				>
 					about
-				</Link>
+				</button>
 			</li>
-			<li className="cursor-pointer">
-				<Link to="/" hash="projects">
+			<li>
+				<button
+					type="button"
+					onClick={() => scrollToElementById("#projects")}
+					className="cursor-pointer"
+				>
 					projects
-				</Link>
+				</button>
 			</li>
-			<li className="cursor-pointer">
-				<Link to="/" hash="contact">
+			<li>
+				<button
+					type="button"
+					onClick={() => scrollToElementById("#contact")}
+					className="cursor-pointer"
+				>
 					contact
-				</Link>
+				</button>
 			</li>
 
 			<span ref={underlineRef} className="absolute bottom-0 h-0.5 bg-black" />

@@ -4,6 +4,7 @@ import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../components/Header";
 import appCss from "../styles.css?url";
 
@@ -34,7 +35,7 @@ export const Route = createRootRoute({
 	shellComponent: RootDocument,
 });
 
-gsap.registerPlugin(useGSAP, ScrollSmoother);
+gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
@@ -42,7 +43,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body className="antialiased font-sans">
+			<body className="antialiased font-sans overscroll-none">
 				<Header />
 				{children}
 				<TanStackDevtools

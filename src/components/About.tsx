@@ -1,7 +1,10 @@
 export default function About() {
 	return (
 		// biome-ignore lint/correctness/useUniqueElementIds: it is unique, controlled by me since its not a list of elements
-		<section className="bg-foreground text-accent-foreground" id="about">
+		<section
+			className="bg-foreground text-accent-foreground min-h-screen relative will-change-transform place-items-center grid panel"
+			id="about"
+		>
 			<div className="container mx-auto py-16">
 				<div className="flex flex-row items-center justify-evenly">
 					<div className="bg-accent-foreground h-0.5 max-w-xl w-52 md:w-xs lg:w-full rounded-full" />
