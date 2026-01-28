@@ -113,29 +113,31 @@ export default function Projects() {
 	return (
 		// biome-ignore lint/correctness/useUniqueElementIds: it is unique, controlled by me since its not a list of elements
 		<section
-			className="bg-foreground-secondary text-accent-foreground min-h-screen relative will-change-transform place-items-center grid panel"
+			className="bg-foreground-secondary text-accent-foreground min-h-screen relative will-change-transform place-items-center grid panel px-4 sm:px-6"
 			id="projects"
 		>
-			<div className="container mx-auto py-16">
-				<div className="flex flex-row items-center justify-evenly">
-					<div className="bg-accent-foreground h-0.5 max-w-xl w-52 md:w-xs lg:w-full rounded-full" />
-					<h2 className="text-6xl mb-6 text-center">Projects</h2>
-					<div className="bg-accent-foreground h-0.5 max-w-xl w-52 md:w-xs lg:w-full rounded-full" />
+			<div className="container mx-auto py-12 sm:py-16 w-full">
+				<div className="flex flex-col sm:flex-row items-center justify-evenly gap-4 sm:gap-6 mb-8 sm:mb-10">
+					<div className="hidden sm:block bg-accent-foreground h-0.5 w-12 sm:w-32 lg:w-52 rounded-full" />
+					<h2 className="text-5xl sm:text-6xl lg:text-6xl mb-0 text-center shrink-0">
+						Projects
+					</h2>
+					<div className="hidden sm:block bg-accent-foreground h-0.5 w-12 sm:w-32 lg:w-52 rounded-full" />
 				</div>
-				<p className="leading-relaxed text-lg max-w-2xl mx-auto text-center">
+				<p className="leading-relaxed text-sm sm:text-base lg:text-lg max-w-2xl mx-auto text-center mb-10 sm:mb-12">
 					A selected collection of projects demonstrating technical depth,
 					ranging from robust back-end systems and developer tools to
 					high-fidelity front-end interfaces.
 				</p>
 			</div>
-			<div className="mx-auto max-w-7xl">
+			<div className="mx-auto max-w-7xl w-full px-4 sm:px-6">
 				<div
-					className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 relative"
+					className="grid gap-4 sm:gap-5 lg:gap-6 sm:grid-cols-2 lg:grid-cols-3 relative mb-10 sm:mb-12"
 					ref={listRef}
 				>
 					<div
 						ref={hoverRef}
-						className="bg-feature-foreground/10 absolute inset-0 rounded-lg pointer-events-none z-10 border border-feature-foreground/20"
+						className="bg-feature-foreground/10 absolute inset-0 rounded-lg pointer-events-none z-10 border border-feature-foreground/20 hidden lg:block"
 					/>
 					{projects.map((project, index) => (
 						<ProjectCard key={project.id} project={project} index={index} />
@@ -147,13 +149,14 @@ export default function Projects() {
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<Button className="p-5">
+				<Button className="p-3 sm:p-4 lg:p-5">
 					<img
 						src="https://twenty-icons.com/github.com/32"
 						alt="Github icon"
-						className="h-5 w-5"
+						className="h-4 w-4 sm:h-5 sm:w-5"
 					/>
-					View all projects on GitHub
+					<span className="hidden sm:inline">View all projects on GitHub</span>
+					<span className="sm:hidden">View on GitHub</span>
 				</Button>
 			</a>
 		</section>

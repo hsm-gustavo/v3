@@ -83,7 +83,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 			className="group relative block overflow-hidden rounded-lg border border-accent-foreground/30 cursor-pointer project-card transition-colors hover:border-feature-foreground/50"
 			style={{ animationDelay: `${index * 0.1}s` }}
 		>
-			<div className="relative aspect-4/3 overflow-hidden bg-foreground">
+			<div className="relative aspect-4/3 sm:aspect-4/3 overflow-hidden bg-foreground">
 				<img
 					ref={imageRef}
 					src={project.imageUrl}
@@ -95,14 +95,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 					className="absolute inset-0 bg-linear-to-t from-foreground via-foreground/40 to-transparent opacity-60"
 				/>
 			</div>
-			<div ref={contentRef} className="absolute inset-x-0 bottom-0 p-4">
-				<div className="flex items-center justify-between gap-3 mb-3">
-					<h3 className="text-lg font-semibold text-accent-foreground truncate">
+			<div ref={contentRef} className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+				<div className="flex items-center justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
+					<h3 className="text-base sm:text-lg font-semibold text-accent-foreground truncate">
 						{project.title}
 					</h3>
 					{project.link && (
 						<svg
-							className="h-4 w-4 text-feature-foreground shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+							className="h-3 w-3 sm:h-4 sm:w-4 text-feature-foreground shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
 							fill="none"
 							stroke="currentColor"
 							viewBox="0 0 24 24"
@@ -118,11 +118,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 					)}
 				</div>
 
-				<div className="flex flex-wrap gap-2 mb-2">
+				<div className="flex flex-wrap gap-1.5 sm:gap-2">
 					{project.tags.slice(0, 4).map((tag) => (
 						<span
 							key={tag}
-							className="inline-flex items-center rounded-full border border-accent-foreground/30 px-2.5 py-1 text-xs text-accent-foreground/90"
+							className="inline-flex items-center rounded-full border border-accent-foreground/30 px-2 sm:px-2.5 py-0.5 sm:py-1 text-xs text-accent-foreground/90"
 						>
 							{tag}
 						</span>

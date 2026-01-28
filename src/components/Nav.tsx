@@ -61,12 +61,15 @@ export default function Nav() {
 	}, []);
 
 	return (
-		<ul ref={listRef} className="relative flex gap-4 ml-6">
+		<ul
+			ref={listRef}
+			className="relative flex gap-2 sm:gap-4 ml-3 sm:ml-6 text-xs sm:text-sm"
+		>
 			<li>
 				<button
 					type="button"
 					onClick={() => scrollToElementById("#about")}
-					className="cursor-pointer"
+					className="cursor-pointer whitespace-nowrap"
 				>
 					about
 				</button>
@@ -75,7 +78,7 @@ export default function Nav() {
 				<button
 					type="button"
 					onClick={() => scrollToElementById("#projects")}
-					className="cursor-pointer"
+					className="cursor-pointer whitespace-nowrap"
 				>
 					projects
 				</button>
@@ -84,7 +87,7 @@ export default function Nav() {
 				<button
 					type="button"
 					onClick={() => scrollToElementById("#contact")}
-					className="cursor-pointer"
+					className="cursor-pointer whitespace-nowrap"
 				>
 					contact
 				</button>

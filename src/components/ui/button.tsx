@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-	"group relative rounded-xl overflow-hidden inline-flex cursor-pointer items-center gap-2 justify-center whitespace-nowrap font-medium text-sm disabled:opacity-50 transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none",
+	"group relative rounded-xl overflow-hidden inline-flex cursor-pointer items-center gap-1 sm:gap-2 justify-center whitespace-nowrap font-medium text-xs sm:text-sm disabled:opacity-50 transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3 sm:[&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none",
 	{
 		variants: {
 			variant: {
@@ -13,9 +13,9 @@ const buttonVariants = cva(
 				outline: "border bg-background",
 			},
 			size: {
-				default: "h-9 px-4 py-2 has-[>svg]:px-3",
-				sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-				lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+				default: "h-9 px-3 sm:px-4 py-2 has-[>svg]:px-2.5 sm:has-[>svg]:px-3",
+				sm: "h-7 sm:h-8 rounded-md gap-1 sm:gap-1.5 px-2 sm:px-3 has-[>svg]:px-2 sm:has-[>svg]:px-2.5",
+				lg: "h-10 sm:h-11 rounded-md px-4 sm:px-6 has-[>svg]:px-3 sm:has-[>svg]:px-4",
 			},
 		},
 		defaultVariants: {
@@ -38,6 +38,20 @@ export default function Button({
 		if (!btnRef.current) return;
 
 		gsap.context(() => {
+			const setBlobSize = () => {
+				const { width } = btnRef.current!.getBoundingClientRect();
+
+				gsap.set([blob1.current], {
+					width,
+					height: width,
+				});
+			};
+
+			setBlobSize();
+
+			const resizeObserver = new ResizeObserver(setBlobSize);
+			resizeObserver.observe(btnRef.current!);
+
 			gsap.set([blob1.current], {
 				scale: 0,
 				transformOrigin: "50% 50%",
@@ -78,6 +92,8 @@ export default function Button({
 			});
 
 			btnRef.current?.addEventListener("mouseleave", () => tl.reverse());
+
+			return () => resizeObserver.disconnect();
 		}, btnRef);
 	}, []);
 
@@ -93,7 +109,7 @@ export default function Button({
 				className="absolute bg-border rounded-full z-0 w-28 h-28 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-0"
 			/>
 
-			<span className="z-10 inline-flex items-center gap-2 transition-colors mix-blend-difference text-white text-shadow-lg font-light">
+			<span className="z-10 inline-flex items-center gap-1 sm:gap-2 transition-colors mix-blend-difference text-white text-shadow-lg font-light">
 				{props.children}
 			</span>
 		</button>

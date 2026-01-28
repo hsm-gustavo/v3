@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-	"aspect-3/2 group relative rounded-xl overflow-hidden inline-flex items-center gap-2 justify-center whitespace-nowrap font-medium text-sm disabled:pointer-events-none disabled:opacity-50",
+	"aspect-square sm:aspect-3/2 group relative rounded-xl overflow-hidden inline-flex items-center gap-2 justify-center whitespace-nowrap font-medium text-sm disabled:pointer-events-none disabled:opacity-50",
 	{
 		variants: {
 			variant: {
@@ -13,10 +13,10 @@ const buttonVariants = cva(
 				outline: "border bg-background",
 			},
 			size: {
-				default: "p-5",
-				sm: "p-3",
-				lg: "p-10",
-				xl: "p-12",
+				default: "p-3 sm:p-5",
+				sm: "p-2 sm:p-3",
+				lg: "p-6 sm:p-10",
+				xl: "p-8 sm:p-12",
 			},
 		},
 		defaultVariants: {
@@ -37,8 +37,9 @@ export default function WideButton({
 	const blob2 = useRef<HTMLSpanElement>(null);
 	const blob3 = useRef<HTMLSpanElement>(null);
 
-	const w =
-		size === "sm" ? 70 : size === "lg" ? 100 : size === "xl" ? 116 : 100;
+	const w = size === "sm" ? 50 : size === "lg" ? 80 : size === "xl" ? 100 : 70;
+
+	const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
 
 	useGSAP(() => {
 		if (!btnRef.current) return;
@@ -125,7 +126,7 @@ export default function WideButton({
 				}}
 			/>
 
-			<p className="z-10 transition-colors mix-blend-difference text-white text-shadow-lg font-light">
+			<p className="z-10 transition-colors mix-blend-difference text-white text-shadow-lg font-light text-xs sm:text-sm">
 				{props.children}
 			</p>
 		</button>

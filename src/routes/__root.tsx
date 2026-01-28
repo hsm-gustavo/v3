@@ -35,7 +35,7 @@ export const Route = createRootRoute({
 	shellComponent: RootDocument,
 });
 
-gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger, Draggable);
+gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
