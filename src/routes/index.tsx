@@ -19,15 +19,11 @@ function App() {
 			effects: true,
 			wrapper: "#smooth-wrapper",
 			content: "#smooth-content",
+			normalizeScroll: true,
+			ignoreMobileResize: true,
 		});
 
 		const panels = gsap.utils.toArray<HTMLElement>(".panel");
-		const tops = panels.map((panel) =>
-			ScrollTrigger.create({
-				trigger: panel,
-				start: "top top",
-			}),
-		);
 
 		panels.forEach((panel, _) => {
 			ScrollTrigger.create({
@@ -37,22 +33,6 @@ function App() {
 				pin: true,
 				pinSpacing: false,
 			});
-		});
-
-		ScrollTrigger.create({
-			snap: {
-				snapTo: (_, self) => {
-					if (!self) return 0;
-					const panelStarts = tops.map((st) => st.start);
-					const snapScroll = gsap.utils.snap(panelStarts, self.scroll());
-					return gsap.utils.normalize(
-						0,
-						ScrollTrigger.maxScroll(window),
-						snapScroll,
-					);
-				},
-				duration: 0.5,
-			},
 		});
 	}, []);
 

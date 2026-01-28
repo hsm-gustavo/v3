@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { projects } from "@/data/projects";
-import LongButton from "./ui/anim-button";
+import Button from "./ui/button";
 import { ProjectCard } from "./ui/project-card";
 
 export default function Projects() {
@@ -142,19 +142,20 @@ export default function Projects() {
 					))}
 				</div>
 			</div>
-			<LongButton
+			<a
 				href="https://github.com/hsm-gustavo"
 				target="_blank"
 				rel="noopener noreferrer"
-				className="p-5"
 			>
-				<img
-					src="https://twenty-icons.com/github.com/32"
-					alt="Github icon"
-					className="h-5 w-5"
-				/>
-				View all projects on GitHub
-			</LongButton>
+				<Button className="p-5">
+					<img
+						src="https://twenty-icons.com/github.com/32"
+						alt="Github icon"
+						className="h-5 w-5"
+					/>
+					View all projects on GitHub
+				</Button>
+			</a>
 		</section>
 	);
 }
