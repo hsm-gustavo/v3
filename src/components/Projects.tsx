@@ -129,6 +129,24 @@ export default function Projects() {
 					ranging from robust back-end systems and developer tools to
 					high-fidelity front-end interfaces.
 				</p>
+				<a
+					href="https://github.com/hsm-gustavo"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="flex justify-center"
+				>
+					<Button className="p-3 sm:p-4 lg:p-5 justify-center">
+						<img
+							src="https://twenty-icons.com/github.com/32"
+							alt="Github icon"
+							className="h-4 w-4 sm:h-5 sm:w-5"
+						/>
+						<span className="hidden sm:inline">
+							View all projects on GitHub
+						</span>
+						<span className="sm:hidden">View on GitHub</span>
+					</Button>
+				</a>
 			</div>
 			<div className="mx-auto max-w-7xl w-full px-4 sm:px-6">
 				<div
@@ -144,21 +162,6 @@ export default function Projects() {
 					))}
 				</div>
 			</div>
-			<a
-				href="https://github.com/hsm-gustavo"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<Button className="p-3 sm:p-4 lg:p-5">
-					<img
-						src="https://twenty-icons.com/github.com/32"
-						alt="Github icon"
-						className="h-4 w-4 sm:h-5 sm:w-5"
-					/>
-					<span className="hidden sm:inline">View all projects on GitHub</span>
-					<span className="sm:hidden">View on GitHub</span>
-				</Button>
-			</a>
 		</section>
 	);
 }
