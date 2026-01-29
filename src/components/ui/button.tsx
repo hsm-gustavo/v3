@@ -100,7 +100,6 @@ export default function Button({
 	return (
 		<button
 			ref={btnRef}
-			data-slot="button"
 			className={cn(buttonVariants({ variant, size, className }))}
 			{...props}
 		>

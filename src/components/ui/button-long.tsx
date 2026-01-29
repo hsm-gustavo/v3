@@ -86,7 +86,6 @@ export default function WideButton({
 	return (
 		<button
 			ref={btnRef}
-			data-slot="button"
 			className={cn(buttonVariants({ variant, size, className }))}
 			{...props}
 		>
