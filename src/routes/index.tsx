@@ -4,10 +4,49 @@ import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({
+	head: () => ({
+		scripts: [
+			{
+				type: "application/ld+json",
+				children: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "Person",
+					name: "Gustavo Malaquias",
+					url: "https://hsm-gustavo.dev",
+					jobTitle: "Full-Stack Developer",
+					worksFor: {
+						"@type": "Organization",
+						name: "Rápido Infoshop",
+					},
+					alumniOf: {
+						"@type": "CollegeOrUniversity",
+						name: "UFAL - Federal University of Alagoas",
+					},
+					sameAs: [
+						"https://www.linkedin.com/in/gustavo-hs-malaquias",
+						"https://github.com/hsm-gustavo",
+					],
+					knowsAbout: [
+						"Go",
+						"TypeScript",
+						"React",
+						"Next.js",
+						"Nestjs",
+						"Linux",
+						"System Architecture",
+						"Full-Stack Development",
+					],
+				}),
+			},
+		],
+	}),
+	component: App,
+});
 
 function App() {
 	useGSAP(() => {
@@ -49,6 +88,7 @@ function App() {
 				<About />
 				<Projects />
 				<Contact />
+				<Footer />
 			</div>
 		</main>
 	);

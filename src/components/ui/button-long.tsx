@@ -39,8 +39,6 @@ export default function WideButton({
 
 	const w = size === "sm" ? 50 : size === "lg" ? 80 : size === "xl" ? 100 : 70;
 
-	const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
-
 	useGSAP(() => {
 		if (!btnRef.current) return;
 

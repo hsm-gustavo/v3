@@ -23,6 +23,32 @@ export const Route = createRootRoute({
 				content:
 					"Welcome to my personal website! Explore my projects, and feel free to reach out.",
 			},
+			{
+				name: "description",
+				content:
+					"Full-Stack Developer specialized in scalable web architectures and Linux systems. Building mobile-first solutions at Rápido Infoshop.",
+			},
+			{
+				name: "keywords",
+				content:
+					"Full-Stack Developer, Go, TypeScript, TanStack Start, React, Nestjs, Linux, Architecture",
+			},
+			{
+				property: "og:title",
+				content: "Gustavo Malaquias | Full-Stack Developer",
+			},
+			{
+				property: "og:description",
+				content: "Building clean, scalable, and accessible web experiences.",
+			},
+			{ property: "og:type", content: "website" },
+			{ property: "og:url", content: "https://hsm-gustavo.dev" },
+			{ property: "og:image", content: "https://hsm-gustavo.dev/og-image.png" },
+			{ name: "twitter:card", content: "summary_large_image" },
+			{
+				name: "twitter:image",
+				content: "https://hsm-gustavo.dev/og-image.png",
+			},
 		],
 		links: [
 			{

@@ -27,7 +27,6 @@ export default function Hero() {
 							</strong>
 						</p>
 						<Link to="/" hash="contact">
-							{/* change later */}
 							<WideButton variant={"outline"} size={"sm"}>
 								Get In Touch
 							</WideButton>
