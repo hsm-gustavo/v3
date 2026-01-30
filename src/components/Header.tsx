@@ -10,7 +10,7 @@ export default function Header() {
 					onClick={() => scrollToElementById("")}
 					className="cursor-pointer"
 				>
-					gustavo
+					Gustavo
 				</button>
 			</p>
 			<nav>

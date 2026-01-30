@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowDown } from "lucide-react";
 import { scrollToElementById } from "@/lib/utils";
 import AsciiGustavo from "./AsciiGustavo";

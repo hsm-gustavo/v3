@@ -1,5 +1,3 @@
-"use client";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
@@ -91,6 +89,16 @@ export default function Nav() {
 				>
 					contact
 				</button>
+			</li>
+			<li>
+				<a
+					href="/resume.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="cursor-pointer whitespace-nowrap"
+				>
+					resume
+				</a>
 			</li>
 
 			<span ref={underlineRef} className="absolute bottom-0 h-0.5 bg-black" />
