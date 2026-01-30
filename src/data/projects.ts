@@ -9,9 +9,18 @@ export const projects: Project[] = [
 	},
 	{
 		id: 2,
-		title: "CDL Arapiraca Chat App",
-		tags: ["Python", "FastAPI", "WhatsApp API"],
-		imageUrl: "/projects/cdl.png",
+		title: "ASA Sócio Patrimonial Platform",
+		tags: [
+			"Next.js",
+			"tRPC",
+			"MySQL",
+			"TypeScript",
+			"React Hook Form",
+			"Prisma",
+			"TailwindCSS",
+			"InfinitePay",
+		],
+		imageUrl: "/projects/patrimoniais.png",
 	},
 	{
 		id: 3,
