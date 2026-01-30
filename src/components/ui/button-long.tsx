@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-	"aspect-square sm:aspect-3/2 group relative rounded-xl overflow-hidden inline-flex items-center gap-2 justify-center whitespace-nowrap font-medium text-sm disabled:pointer-events-none disabled:opacity-50",
+	"aspect-square sm:aspect-3/2 group relative rounded-xl overflow-hidden inline-flex cursor-pointer items-center gap-2 justify-center whitespace-nowrap font-medium text-sm disabled:pointer-events-none disabled:opacity-50",
 	{
 		variants: {
 			variant: {
