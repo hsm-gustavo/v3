@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowDown } from "lucide-react";
+import { scrollToElementById } from "@/lib/utils";
 import AsciiGustavo from "./AsciiGustavo";
 import WideButton from "./ui/button-long";
 
@@ -26,11 +27,14 @@ export default function Hero() {
 								clean, scalable web applications.
 							</strong>
 						</p>
-						<Link to="/" hash="contact">
-							<WideButton variant={"outline"} size={"sm"}>
-								Get In Touch
-							</WideButton>
-						</Link>
+
+						<WideButton
+							variant={"outline"}
+							size={"sm"}
+							onClick={() => scrollToElementById("#contact")}
+						>
+							Get In Touch
+						</WideButton>
 					</div>
 					<div className="hidden sm:flex lg:w-auto w-full justify-center lg:justify-end shrink-0">
 						<AsciiGustavo className="scale-50 sm:scale-75 lg:scale-100 origin-top-left sm:origin-top-right" />
