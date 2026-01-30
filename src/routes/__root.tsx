@@ -42,12 +42,15 @@ export const Route = createRootRoute({
 				content: "Building clean, scalable, and accessible web experiences.",
 			},
 			{ property: "og:type", content: "website" },
-			{ property: "og:url", content: "https://hsm-gustavo.dev" },
-			{ property: "og:image", content: "https://hsm-gustavo.dev/og-image.png" },
+			{ property: "og:url", content: "https://v3.hsm-gustavo.dev" },
+			{
+				property: "og:image",
+				content: "https://v3.hsm-gustavo.dev/og-image.png",
+			},
 			{ name: "twitter:card", content: "summary_large_image" },
 			{
 				name: "twitter:image",
-				content: "https://hsm-gustavo.dev/og-image.png",
+				content: "https://v3.hsm-gustavo.dev/og-image.png",
 			},
 		],
 		links: [
@@ -61,9 +64,9 @@ export const Route = createRootRoute({
 	shellComponent: RootDocument,
 });
 
-gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
-
 function RootDocument({ children }: { children: React.ReactNode }) {
+	gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
+
 	return (
 		<html lang="en">
 			<head>

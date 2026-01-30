@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Sitemap: https://hsm-gustavo.dev/sitemap.xml
+Sitemap: https://v3.hsm-gustavo.dev/sitemap.xml
